@@ -2,6 +2,7 @@ services:
   - type: web
     name: sssssayog-bot
     env: python
+    plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: python main.py
     autoDeploy: true
