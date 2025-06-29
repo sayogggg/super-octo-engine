@@ -1,12 +1,13 @@
 import asyncio
 from aiogram import Bot, Dispatcher
 from aiogram.types import InputMediaPhoto
+from aiogram.fsm.storage.memory import MemoryStorage
 from config import BOT_TOKEN, CHANNEL_USERNAME
 from anime_fetcher import fetch_random_anime
 from scheduler import schedule_jobs
 
 bot = Bot(token=BOT_TOKEN, parse_mode='HTML')
-dp = Dispatcher()
+dp = Dispatcher(storage=MemoryStorage())
 
 async def send_anime_post():
     anime = await fetch_random_anime()
